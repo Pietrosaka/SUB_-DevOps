@@ -204,20 +204,3 @@ flowchart LR
   RG --> BancoAzure
 ```
 
-Use esse diagrama como base para criar a imagem da arquitetura no Draw.io, PowerPoint, Canva ou outra ferramenta visual.
-
-## Conteudo para o PDF final
-
-O PDF final deve conter:
-
-- Capa com nome completo, RM, turma, disciplina, professor e nome do projeto.
-- Problema escolhido, contexto, publico afetado e objetivo.
-- Tecnologias utilizadas.
-- Modelo da tabela `ingressos`.
-- Explicacao das rotas de CRUD.
-- Print do codigo, Dockerfile, Docker Compose e `db/init.sql`.
-- Prints dos comandos Docker executados.
-- Prints de CREATE, READ, UPDATE e DELETE funcionando.
-- Prints da imagem no ACR e dos comandos Azure CLI.
-- Diagrama de arquitetura cloud.
-- Print da exclusao dos recursos no Azure.

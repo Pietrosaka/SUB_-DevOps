@@ -1,0 +1,39 @@
+services:
+  stadium-control-api:
+    build: .
+    container_name: stadium-control-api
+    ports:
+      - "3001:3000"
+    environment:
+      PORT: 3000
+      DB_HOST: stadium-control-db
+      DB_USER: stadium_user
+      DB_PASSWORD: stadium_password
+      DB_NAME: stadium_control
+      DB_PORT: 5432
+    depends_on:
+      - stadium-control-db
+    networks:
+      - stadium-control-network
+
+  stadium-control-db:
+    image: postgres:16
+    container_name: stadium-control-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: stadium_user
+      POSTGRES_PASSWORD: stadium_password
+      POSTGRES_DB: stadium_control
+    volumes:
+      - stadium-control-data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - stadium-control-network
+
+networks:
+  stadium-control-network:
+    driver: bridge
+
+volumes:
+  stadium-control-data:
